@@ -1,31 +1,40 @@
 <?php
+//Client.php
 class Client
 {
 public function insertData()
 {
+$secure=new SecureData();
 $context=new Context(new DataEntry());
-$context->algorithm();
+$secure->enterData();
+$context->algorithm($secure->setEntry());
 }
 public function findData()
 {
+$secure=new SecureData();
 $context=new Context(new SearchData());
-$context->algorithm();
+$secure->conductSearch();
+$context->algorithm($secure->setEntry());
 }
 public function showAll()
 {
-$context=new Context(new DisplayData());
-$context->algorithm();
+$dummy=array(0);
+$context=new Context(new DisplayAll());
+$context->algorithm($dummy);
 }
 public function changeData()
 {
+$secure=new SecureData();
 $context=new Context(new UpdateData());
-$context->algorithm();
+$secure->makeChange();
+$context->algorithm($secure->setEntry());
 }
 public function killer()
 {
+$secure=new SecureData();
 $context=new Context(new DeleteRecord());
-
-$context->algorithm();
+$secure->removeRecord();
+$context->algorithm($secure->setEntry());
 }
 }
 ?>

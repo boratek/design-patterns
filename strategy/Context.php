@@ -2,15 +2,16 @@
 class Context
 {
 private $strategy;
+private $dataPack;
 public function __construct(IStrategy $strategy)
 {
 $this->strategy = $strategy;
 }
-
-public function algorithm()
+public function algorithm(Array $dataPack)
 {
-$this->strategy->algorithm();
+$this->dataPack=$dataPack;
+$this->strategy->algorithm($this->dataPack);
 }
-
 }
 ?>
+
